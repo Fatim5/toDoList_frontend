@@ -1,0 +1,42 @@
+name: todo_app
+description: "Application collaborative de gestion de tâches (To-Do List) connectée à un backend Spring Boot (MySQL) via API REST."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Gestion d'état (rôle "Controller" du MVC)
+  provider: ^6.1.2
+
+  # Persistance de la session (token JWT, e-mail connecté)
+  shared_preferences: ^2.2.3
+
+  # Appels API REST vers le backend Spring Boot
+  http: ^1.2.2
+
+  # Décodage léger du payload JWT (pour récupérer des infos du token si besoin)
+  # (aucun package externe nécessaire — décodage manuel en base64 dans le code)
+
+  # Formatage des dates
+  intl: ^0.20.2
+
+  # Typographie
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
