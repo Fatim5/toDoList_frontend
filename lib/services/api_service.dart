@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import '../models/app_user.dart';
 import '../models/external_task.dart';
 import '../models/task.dart';
+import 'package:flutter/foundation.dart';
 
 /// Service d'accès à l'API REST du backend Spring Boot.
 ///
@@ -24,7 +25,12 @@ class ApiService {
   static final ApiService instance = ApiService._internal();
 
   /// 🔧 À ADAPTER : adresse IP locale de ton serveur Spring Boot.
-  static const String baseUrl = 'http://192.168.100.181:8080/api';
+  static String get baseUrl {
+  if (kIsWeb) {
+    return 'http://localhost:8080/api';
+  }
+  return 'http://192.168.100.181:8080/api';
+}
 
   Map<String, String> _headers({String? token, bool withBody = false}) {
     final headers = <String, String>{};
